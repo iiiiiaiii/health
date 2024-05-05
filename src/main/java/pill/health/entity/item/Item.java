@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Item extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name="item_id")
     private UUID uuid;
 
@@ -21,6 +21,9 @@ public class Item extends BaseEntity {
     private int stock;
     private String etc;
 
+    protected Item() {
+
+    }
     public Item(String name, int price, int stock, String etc) {
         this.name = name;
         this.price = price;

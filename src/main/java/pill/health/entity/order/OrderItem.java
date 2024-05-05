@@ -12,7 +12,7 @@ import java.util.UUID;
 public class OrderItem extends BaseEntity {
 //상품담기
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name="orderItem_id")
     private UUID uuid;
 
@@ -24,7 +24,10 @@ public class OrderItem extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private OrderBasket orderBasket;
 
-    public OrderItem(String name, int count, int priceOne,OrderBasket orderBasket) {
+    protected OrderItem() {
+    }
+
+    public OrderItem(String name, int count, int priceOne, OrderBasket orderBasket) {
         this.name = name;
         this.count = count;
         this.priceOne = priceOne;

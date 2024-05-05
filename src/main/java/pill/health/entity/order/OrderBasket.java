@@ -15,14 +15,14 @@ import java.util.UUID;
 public class OrderBasket extends BaseEntity {
 //장바구니
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name="orderBasket_id")
     private UUID uuid;
 
     @OneToMany(mappedBy = "orderBasket")
     private List<OrderItem> orderItem = new ArrayList<>();
 
-    @JoinColumn(name = "orderItem_id")
+    @JoinColumn(name = "orderBase_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private OrderBase orderBase;
 
@@ -33,6 +33,11 @@ public class OrderBasket extends BaseEntity {
 
     @OneToOne(mappedBy = "orderBasket")
     private Delivery delivery;
+
+
+
+
+
 
     public void setOrderItem(String name, int count, int priceOne) {
         OrderItem newOrderItem = new OrderItem(name, count, priceOne, this);

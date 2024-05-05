@@ -14,13 +14,14 @@ import java.util.UUID;
 public class Member extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name="member_id")
     private UUID uuid;
 
     @Column(unique = true)
     private String username;
 
+    private String name;
     private String password;
     private String privateNumber; //주민번호
     @Embedded
@@ -28,6 +29,7 @@ public class Member extends BaseEntity {
     private String tell;
     private String Email;
     private int consumption;
+    @Enumerated(EnumType.STRING)
     private Grade grade;
     private String role;
 
@@ -35,16 +37,20 @@ public class Member extends BaseEntity {
     @JoinColumn(name = "orderBase_id")
     private OrderBase orderBase;
 
+    protected Member() {
+
+    }
 
 
-    public Member(String username, String password, String privateNumber, String address, String zipcode,String street, String tell, String email, int consumption) {
+    public Member(String username, String name, String password, String privateNumber, Address address, String tell, String email) {
         this.username = username;
+        this.name = name;
         this.password = password;
         this.privateNumber = privateNumber;
-        this.address = new Address(address, zipcode, street);
+        this.address = address;
         this.tell = tell;
         this.Email = email;
-        this.consumption = consumption;
+        this.consumption=0;
         this.role = "USER";
         this.grade = Grade.Silver;
         this.orderBase = new OrderBase(this);

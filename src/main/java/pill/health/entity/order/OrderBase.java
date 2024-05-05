@@ -14,7 +14,7 @@ import java.util.UUID;
 public class OrderBase extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "orderBase_id")
     private UUID uuid;
 
@@ -25,6 +25,9 @@ public class OrderBase extends BaseEntity {
     private Member member;
 
     private int price;
+
+    protected OrderBase() {
+    }
 
     public OrderBase(Member member) {
         this.member = member;

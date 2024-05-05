@@ -13,7 +13,7 @@ import java.util.UUID;
 public class Delivery extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "delivery_id")
     private UUID uuid;
 
@@ -26,6 +26,10 @@ public class Delivery extends BaseEntity {
 
     @Embedded
     private Address address;
+
+    protected Delivery() {
+
+    }
 
     public Delivery(OrderBasket orderBasket, Address address) {
         this.deliveryStatus = DeliveryStatus.배송전;

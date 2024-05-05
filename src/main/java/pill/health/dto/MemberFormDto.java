@@ -1,6 +1,7 @@
 package pill.health.dto;
 
 import lombok.Data;
+import pill.health.entity.Address;
 
 @Data
 public class MemberFormDto {
@@ -8,17 +9,15 @@ public class MemberFormDto {
     private String name;
     private String password;
     private String privateNumber;
-    private String Address;
-    private String AddressDetail;
+    private Address address;
     private String tell;
     private String Email;
 
-    public MemberFormDto(String username, String name, String password, String address, String addressDetail, String tell, String email) {
+    public MemberFormDto(String username, String name, String password, String city, String zipcode,String street, String tell, String email) {
         this.username = username;
         this.name = name;
         this.password = password;
-        this.Address = address;
-        this.AddressDetail = addressDetail;
+        this.address = new Address(city, zipcode, street);
         this.tell = tell;
         this.Email = email;
     }
