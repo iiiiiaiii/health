@@ -13,8 +13,8 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/hi")
+    @GetMapping("/introduce")
     public String hi() {
-        return "hi";
+        return "company/ceo";
     }
 }

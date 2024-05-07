@@ -5,10 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pill.health.dto.ItemFormDto;
+import pill.health.dto.ItemListDto;
 import pill.health.entity.item.Item;
 import pill.health.repository.ItemRepository;
 
-import java.util.UUID;
+import org.springframework.data.domain.Pageable;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -36,4 +38,7 @@ public class ItemService {
     }
 
 
+    public List<ItemListDto> itemListDtoList(Pageable pageable) {
+        return itemRepository.itemList(pageable);
+    }
 }
