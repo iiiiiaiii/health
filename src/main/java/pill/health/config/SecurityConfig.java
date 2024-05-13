@@ -70,7 +70,11 @@ public class SecurityConfig {
         http
                 .httpBasic(AbstractHttpConfigurer::disable);
         http
-                .formLogin(AbstractHttpConfigurer::disable);
+                .formLogin(form -> form
+                        .loginPage("/login") // 로그인 페이지 지정
+                        .permitAll() // 로그인 페이지는 모두 접근 가능하도록 설정
+                );
+
 
         http
                 .authorizeHttpRequests(auth -> auth

@@ -12,6 +12,7 @@ import java.util.UUID;
 public interface ItemRepository extends JpaRepository<Item, UUID> {
 
     @Query("select new pill.health.dto.ItemListDto(i.name, i.price, i.stock, i.etc)" +
-            " from Item i")
+            " from Item i" +
+            " order by i.createDate, i.name ")
     List<ItemListDto> itemList(Pageable pageable);
 }

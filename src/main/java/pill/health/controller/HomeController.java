@@ -14,7 +14,7 @@ public class HomeController {
     }
 
     @GetMapping("/introduce")
-    public String hi() {
+    public String ceo() {
         return "company/ceo";
     }
 }

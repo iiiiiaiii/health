@@ -201,8 +201,8 @@
         <nav class="nav nav-underline justify-content-between">
             <a class="nav-item nav-link link-body-emphasis active" href="/introduce">회사소개</a>
             <a class="nav-item nav-link link-body-emphasis" href="/items">상품목록</a>
-            <a class="nav-item nav-link link-body-emphasis" href="/#">??</a>
             <a class="nav-item nav-link link-body-emphasis" href="/login">로그인</a>
+            <a th:href="@{/member/{uuid}(uuid=${member.uuid})}" class="nav-item nav-link link-body-emphasis" href="/member/">마이페이지</a>
         </nav>
     </div>
 </div>
